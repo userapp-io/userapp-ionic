@@ -8,7 +8,7 @@
 angular.module('starter', ['ionic', 'UserApp', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform, user) {
-  user.init({ appId: '52b8a5d2dca15' });
+  user.init({ appId: 'YOUR-USERAPP-APP-ID' });
 
   $ionicPlatform.ready(function() {
     if(window.StatusBar) {
