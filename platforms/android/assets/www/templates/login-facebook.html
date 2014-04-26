@@ -1,0 +1,20 @@
+<form ua-login>
+  <ion-view title="Log In">
+    <ion-content>
+      <div class="padding" style="text-align: center; padding-top: 100px;">
+        <h2>Welcome to MyApp</h2>
+        <button class="button button-block button-positive icon-left ion-social-facebook" ua-oauth-link="facebook" style="background: #4c66a4;">
+          <span ng-show="!loading">Log in with Facebook</span>
+          <i ng-show="loading" class="ion-loading-b"></i>
+        </button>
+
+        <p class="text-center">
+            <a href="#/login">Log in/sign up with your email</a>
+          </p>
+      </div>
+    </ion-content>
+  </ion-view>
+  <div class="bar bar-footer bar-assertive" ng-show="error">
+    <div class="title">{{ error.message }}</div>
+  </div>
+</form>

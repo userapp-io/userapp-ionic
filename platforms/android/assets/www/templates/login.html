@@ -1,0 +1,31 @@
+<form ua-login>
+  <ion-view title="Log In">
+    <ion-content>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" name="login">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" name="password">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">
+          <span ng-show="!loading">Log In</span>
+          <i ng-show="loading" class="ion-loading-b"></i>
+        </button>
+        <!--p class="text-center">
+          <a href="#/forgot-password">Forgot password?</a>
+        </p-->
+        <p class="text-center">
+          <a href="#/signup">Sign Up</a>
+        </p>
+      </div>
+    </ion-content>
+  </ion-view>
+  <div class="bar bar-footer bar-assertive" ng-show="error">
+    <div class="title">{{ error.message }}</div>
+  </div>
+</form>
