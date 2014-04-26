@@ -28,6 +28,10 @@ UserApp.Transport.encodeArguments = function(source, prefix, skipIndex){
     var result = [];
     
     for(var index in source){
+        if(typeof source == 'object' && !source.hasOwnProperty(index)){
+			continue;
+        }
+        
         var value = source[index];
         var key = prefix ? prefix + "[" + index + "]" : index;
 
