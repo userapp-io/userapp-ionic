@@ -17,7 +17,9 @@ Open the file `www/js/app.js` and replace `YOUR-USERAPP-APP-ID` with your App Id
 
 **Run the app with Ionic**
 
-`ionic emulate android`
+    $ ionic platform add android
+    $ ionic build android
+    $ ionic emulate android
 
 ## Help
 
