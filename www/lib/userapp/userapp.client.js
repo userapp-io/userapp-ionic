@@ -226,9 +226,14 @@ UserApp.setSecure = function(secure){
 
 // User
 
-UserApp.User = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.User = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Search for users
@@ -238,7 +243,7 @@ UserApp.User.search = function(arguments, callback){
 };
 
 UserApp.User.prototype.search = function(arguments, callback){
-	UserApp.User.search(arguments, callback);
+	UserApp.User.search.call(this, arguments, callback);
 };
 
 // Save a user
@@ -248,7 +253,7 @@ UserApp.User.save = function(arguments, callback){
 };
 
 UserApp.User.prototype.save = function(arguments, callback){
-	UserApp.User.save(arguments, callback);
+	UserApp.User.save.call(this, arguments, callback);
 };
 
 // Get a specific user
@@ -258,7 +263,7 @@ UserApp.User.get = function(arguments, callback){
 };
 
 UserApp.User.prototype.get = function(arguments, callback){
-	UserApp.User.get(arguments, callback);
+	UserApp.User.get.call(this, arguments, callback);
 };
 
 // Count number of users
@@ -273,7 +278,7 @@ UserApp.User.count = function(arguments, callback){
 };
 
 UserApp.User.prototype.count = function(arguments, callback){
-	UserApp.User.count(arguments, callback);
+	UserApp.User.count.call(this, arguments, callback);
 };
 
 // Remove
@@ -283,7 +288,7 @@ UserApp.User.remove = function(arguments, callback){
 };
 
 UserApp.User.prototype.remove = function(callback){
-	UserApp.User.remove(callback);
+	UserApp.User.remove.call(this, callback);
 };
 
 // Change password
@@ -293,7 +298,7 @@ UserApp.User.resetPassword = function(arguments, callback){
 };
 
 UserApp.User.prototype.resetPassword = function(arguments, callback){
-	UserApp.User.resetPassword(arguments, callback);
+	UserApp.User.resetPassword.call(this, arguments, callback);
 };
 
 // Change password
@@ -303,7 +308,7 @@ UserApp.User.changePassword = function(arguments, callback){
 };
 
 UserApp.User.prototype.changePassword = function(arguments, callback){
-	UserApp.User.changePassword(arguments, callback);
+	UserApp.User.changePassword.call(this, arguments, callback);
 };
 
 // Verify Email
@@ -313,7 +318,7 @@ UserApp.User.verifyEmail = function(arguments, callback){
 };
 
 UserApp.User.prototype.verifyEmail = function(arguments, callback){
-	UserApp.User.verifyEmail(arguments, callback);
+	UserApp.User.verifyEmail.call(this, arguments, callback);
 };
 
 // Request Email Verification
@@ -323,7 +328,7 @@ UserApp.User.requestEmailVerification = function(arguments, callback){
 };
 
 UserApp.User.prototype.requestEmailVerification = function(arguments, callback){
-	UserApp.User.requestEmailVerification(arguments, callback);
+	UserApp.User.requestEmailVerification.call(this, arguments, callback);
 };
 
 // Plan
@@ -333,7 +338,7 @@ UserApp.User.setPlan = function(arguments, callback){
 };
 
 UserApp.User.prototype.setPlan = function(arguments, callback){
-	UserApp.User.setPlan(arguments, callback);
+	UserApp.User.setPlan.call(this, arguments, callback);
 };
 
 // Get subscription details
@@ -343,7 +348,7 @@ UserApp.User.getSubscriptionDetails = function(arguments, callback){
 };
 
 UserApp.User.prototype.getSubscriptionDetails = function(arguments, callback){
-	UserApp.User.getSubscriptionDetails(arguments, callback);
+	UserApp.User.getSubscriptionDetails.call(this, arguments, callback);
 };
 
 // Lock
@@ -353,7 +358,7 @@ UserApp.User.lock = function(arguments, callback){
 };
 
 UserApp.User.prototype.lock = function(arguments, callback){
-	UserApp.User.setLock(arguments, callback);
+	UserApp.User.setLock.call(this, arguments, callback);
 };
 
 // Unlock
@@ -363,7 +368,7 @@ UserApp.User.unlock = function(arguments, callback){
 };
 
 UserApp.User.prototype.unlock = function(arguments, callback){
-	UserApp.User.unlock(arguments, callback);
+	UserApp.User.unlock.call(this, arguments, callback);
 };
 
 // Has Permission
@@ -373,7 +378,7 @@ UserApp.User.hasPermission = function(arguments, callback){
 };
 
 UserApp.User.prototype.hasPermission = function(arguments, callback){
-	UserApp.User.hasPermission(arguments, callback);
+	UserApp.User.hasPermission.call(this, arguments, callback);
 };
 
 // Has Feature
@@ -383,7 +388,7 @@ UserApp.User.hasFeature = function(arguments, callback){
 };
 
 UserApp.User.prototype.hasFeature = function(arguments, callback){
-	UserApp.User.hasFeature(arguments, callback);
+	UserApp.User.hasFeature.call(this, arguments, callback);
 };
 
 // Login
@@ -405,7 +410,7 @@ UserApp.User.login = function(arguments, callback){
 };
 
 UserApp.User.prototype.login = function(arguments, callback){
-	UserApp.User.login(arguments, callback);
+	UserApp.User.login.call(this, arguments, callback);
 };
 
 // Logout
@@ -418,14 +423,19 @@ UserApp.User.logout = function(callback){
 };
 
 UserApp.User.prototype.logout = function(callback){
-	UserApp.User.logout(callback);
+	UserApp.User.logout.call(this, callback);
 };
 
 // Token
 
-UserApp.Token = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Token = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get token
@@ -435,7 +445,7 @@ UserApp.Token.get = function(arguments, callback){
 };
 
 UserApp.Token.prototype.get = function(arguments, callback){
-	UserApp.Token.get(arguments, callback);
+	UserApp.Token.get.call(this, arguments, callback);
 };
 
 // Search token
@@ -445,7 +455,7 @@ UserApp.Token.search = function(arguments, callback){
 };
 
 UserApp.Token.prototype.search = function(arguments, callback){
-	UserApp.Token.search(arguments, callback);
+	UserApp.Token.search.call(this, arguments, callback);
 };
 
 // Save token
@@ -455,7 +465,7 @@ UserApp.Token.save = function(arguments, callback){
 };
 
 UserApp.Token.prototype.save = function(arguments, callback){
-	UserApp.Token.save(arguments, callback);
+	UserApp.Token.save.call(this, arguments, callback);
 };
 
 // Remove token
@@ -465,7 +475,7 @@ UserApp.Token.remove = function(arguments, callback){
 };
 
 UserApp.Token.prototype.remove = function(arguments, callback){
-	UserApp.Token.remove(arguments, callback);
+	UserApp.Token.remove.call(this, arguments, callback);
 };
 
 // Heartbeat
@@ -476,14 +486,19 @@ UserApp.Token.heartbeat = function(callback){
 };
 
 UserApp.Token.prototype.heartbeat = function(callback){
-	UserApp.Token.heartbeat(callback);
+	UserApp.Token.heartbeat.call(this, callback);
 };
 
 // Permission
 
-UserApp.Permission = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Permission = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get a permission
@@ -493,7 +508,7 @@ UserApp.Permission.get = function(arguments, callback){
 };
 
 UserApp.Permission.prototype.get = function(arguments, callback){
-	UserApp.Permission.get(arguments, callback);
+	UserApp.Permission.get.call(this, arguments, callback);
 };
 
 // Search permission
@@ -503,7 +518,7 @@ UserApp.Permission.search = function(arguments, callback){
 };
 
 UserApp.Permission.prototype.search = function(arguments, callback){
-	UserApp.Permission.search(arguments, callback);
+	UserApp.Permission.search.call(this, arguments, callback);
 };
 
 // Save a permission
@@ -513,7 +528,7 @@ UserApp.Permission.save = function(arguments, callback){
 };
 
 UserApp.Permission.prototype.save = function(arguments, callback){
-	UserApp.Permission.save(arguments, callback);
+	UserApp.Permission.save.call(this, arguments, callback);
 };
 
 // Count number of permissions
@@ -523,7 +538,7 @@ UserApp.Permission.count = function(callback){
 };
 
 UserApp.Permission.prototype.count = function(callback){
-	UserApp.Permission.count(arguments, callback);
+	UserApp.Permission.count.call(this, callback);
 };
 
 // Remove a specific permission
@@ -533,14 +548,19 @@ UserApp.Permission.remove = function(arguments, callback){
 };
 
 UserApp.Permission.prototype.remove = function(callback){
-	UserApp.Permission.remove(callback);
+	UserApp.Permission.remove.call(this, callback);
 };
 
 // Feature
 
-UserApp.Feature = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Feature = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get a feature
@@ -550,7 +570,7 @@ UserApp.Feature.get = function(arguments, callback){
 };
 
 UserApp.Feature.prototype.get = function(arguments, callback){
-	UserApp.Feature.get(arguments, callback);
+	UserApp.Feature.get.call(this, arguments, callback);
 };
 
 // Search feature
@@ -560,7 +580,7 @@ UserApp.Feature.search = function(arguments, callback){
 };
 
 UserApp.Feature.prototype.search = function(arguments, callback){
-	UserApp.Feature.search(arguments, callback);
+	UserApp.Feature.search.call(this, arguments, callback);
 };
 
 // Save a feature
@@ -570,7 +590,7 @@ UserApp.Feature.save = function(arguments, callback){
 };
 
 UserApp.Feature.prototype.save = function(arguments, callback){
-	UserApp.Feature.save(arguments, callback);
+	UserApp.Feature.save.call(this, arguments, callback);
 };
 
 // Count number of features
@@ -580,7 +600,7 @@ UserApp.Feature.count = function(callback){
 };
 
 UserApp.Feature.prototype.count = function(callback){
-	UserApp.Feature.count(arguments, callback);
+	UserApp.Feature.count.call(this, callback);
 };
 
 // Remove a specific feature
@@ -590,14 +610,19 @@ UserApp.Feature.remove = function(arguments, callback){
 };
 
 UserApp.Feature.prototype.remove = function(callback){
-	UserApp.Feature.remove(callback);
+	UserApp.Feature.remove.call(this, callback);
 };
 
 // Property
 
-UserApp.Property = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Property = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get a property
@@ -607,7 +632,7 @@ UserApp.Property.get = function(arguments, callback){
 };
 
 UserApp.Property.prototype.get = function(arguments, callback){
-	UserApp.Property.get(arguments, callback);
+	UserApp.Property.get.call(this, arguments, callback);
 };
 
 // Search property
@@ -617,7 +642,7 @@ UserApp.Property.search = function(arguments, callback){
 };
 
 UserApp.Property.prototype.search = function(arguments, callback){
-	UserApp.Property.search(arguments, callback);
+	UserApp.Property.search.call(this, arguments, callback);
 };
 
 // Save a property
@@ -627,7 +652,7 @@ UserApp.Property.save = function(arguments, callback){
 };
 
 UserApp.Property.prototype.save = function(arguments, callback){
-	UserApp.Property.save(arguments, callback);
+	UserApp.Property.save.call(this, arguments, callback);
 };
 
 // Count number of propertys
@@ -637,7 +662,7 @@ UserApp.Property.count = function(callback){
 };
 
 UserApp.Property.prototype.count = function(callback){
-	UserApp.Property.count(arguments, callback);
+	UserApp.Property.count.call(this, arguments, callback);
 };
 
 // Remove a specific property
@@ -647,14 +672,19 @@ UserApp.Property.remove = function(arguments, callback){
 };
 
 UserApp.Property.prototype.remove = function(callback){
-	UserApp.Property.remove(callback);
+	UserApp.Property.remove.call(this, callback);
 };
 
 // PriceList
 
-UserApp.PriceList = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.PriceList = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get a pricelist
@@ -664,7 +694,7 @@ UserApp.PriceList.get = function(arguments, callback){
 };
 
 UserApp.PriceList.prototype.get = function(arguments, callback){
-	UserApp.PriceList.get(arguments, callback);
+	UserApp.PriceList.get.call(this, arguments, callback);
 };
 
 // Search pricelist
@@ -674,7 +704,7 @@ UserApp.PriceList.search = function(arguments, callback){
 };
 
 UserApp.PriceList.prototype.search = function(arguments, callback){
-	UserApp.PriceList.search(arguments, callback);
+	UserApp.PriceList.search.call(this, arguments, callback);
 };
 
 // Update a specific pricelist
@@ -684,7 +714,7 @@ UserApp.PriceList.save = function(arguments, callback){
 };
 
 UserApp.PriceList.prototype.save = function(arguments, callback){
-	UserApp.PriceList.save(arguments, callback);
+	UserApp.PriceList.save.call(this, arguments, callback);
 };
 
 // Count number of pricelists
@@ -694,7 +724,7 @@ UserApp.PriceList.count = function(callback){
 };
 
 UserApp.PriceList.prototype.count = function(callback){
-	UserApp.PriceList.count(arguments, callback);
+	UserApp.PriceList.count.call(this, callback);
 };
 
 // Remove a specific pricelist
@@ -704,14 +734,19 @@ UserApp.PriceList.remove = function(arguments, callback){
 };
 
 UserApp.PriceList.prototype.remove = function(callback){
-	UserApp.PriceList.remove(callback);
+	UserApp.PriceList.remove.call(this, callback);
 };
 
 // Invoice
 
-UserApp.Invoice = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Invoice = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get invoices
@@ -721,7 +756,7 @@ UserApp.Invoice.get = function(arguments, callback){
 };
 
 UserApp.Invoice.prototype.get = function(callback){
-	UserApp.Invoice.get(callback);
+	UserApp.Invoice.get.call(this, callback);
 };
 
 // Search for invoices
@@ -731,7 +766,7 @@ UserApp.Invoice.search = function(arguments, callback){
 };
 
 UserApp.Invoice.prototype.search = function(callback){
-	UserApp.Invoice.search(callback);
+	UserApp.Invoice.search.call(this, callback);
 };
 
 // Save a invoice
@@ -741,7 +776,7 @@ UserApp.Invoice.save = function(arguments, callback){
 };
 
 UserApp.Invoice.prototype.save = function(callback){
-	UserApp.Invoice.save(callback);
+	UserApp.Invoice.save.call(this, callback);
 };
 
 // Remove invoices
@@ -751,14 +786,19 @@ UserApp.Invoice.remove = function(arguments, callback){
 };
 
 UserApp.Invoice.prototype.remove = function(callback){
-	UserApp.Invoice.remove(callback);
+	UserApp.Invoice.remove.call(this, callback);
 };
 
 // Plan
 
-UserApp.Plan = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Plan = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get a plan
@@ -768,7 +808,7 @@ UserApp.Plan.get = function(arguments, callback){
 };
 
 UserApp.Plan.prototype.get = function(arguments, callback){
-	UserApp.Plan.get(arguments, callback);
+	UserApp.Plan.get.call(this, arguments, callback);
 };
 
 // Search for plans
@@ -778,7 +818,7 @@ UserApp.Plan.search = function(arguments, callback){
 };
 
 UserApp.Plan.prototype.search = function(arguments, callback){
-	UserApp.Plan.search(arguments, callback);
+	UserApp.Plan.search.call(this, arguments, callback);
 };
 
 // Save a plan
@@ -788,7 +828,7 @@ UserApp.Plan.save = function(arguments, callback){
 };
 
 UserApp.Plan.prototype.save = function(arguments, callback){
-	UserApp.Plan.save(arguments, callback);
+	UserApp.Plan.save.call(this, arguments, callback);
 };
 
 // Count number of pricelistplans
@@ -798,7 +838,7 @@ UserApp.Plan.count = function(callback){
 };
 
 UserApp.Plan.prototype.count = function(callback){
-	UserApp.Plan.count(arguments, callback);
+	UserApp.Plan.count.call(this, arguments, callback);
 };
 
 // Remove a specific pricelistplan
@@ -808,14 +848,19 @@ UserApp.Plan.remove = function(arguments, callback){
 };
 
 UserApp.Plan.prototype.remove = function(callback){
-	UserApp.Plan.remove(callback);
+	UserApp.Plan.remove.call(this, callback);
 };
 
 // User Invoice
 
-UserApp.User.Invoice = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.User.Invoice = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get invoices
@@ -825,7 +870,7 @@ UserApp.User.Invoice.get = function(arguments, callback){
 };
 
 UserApp.User.Invoice.prototype.get = function(callback){
-	UserApp.Plan.get(callback);
+	UserApp.Plan.get.call(this, callback);
 };
 
 // Search for invoices
@@ -835,14 +880,19 @@ UserApp.User.Invoice.search = function(arguments, callback){
 };
 
 UserApp.User.Invoice.prototype.search = function(callback){
-	UserApp.Plan.search(callback);
+	UserApp.Plan.search.call(this, callback);
 };
 
 // User Payment Method
 
-UserApp.User.PaymentMethod = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.User.PaymentMethod = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get payment methods
@@ -852,7 +902,7 @@ UserApp.User.PaymentMethod.get = function(arguments, callback){
 };
 
 UserApp.User.PaymentMethod.prototype.get = function(callback){
-	UserApp.Plan.get(callback);
+	UserApp.Plan.get.call(this, callback);
 };
 
 // Search for payment methods
@@ -862,7 +912,7 @@ UserApp.User.PaymentMethod.search = function(arguments, callback){
 };
 
 UserApp.User.PaymentMethod.prototype.search = function(callback){
-	UserApp.Plan.search(callback);
+	UserApp.Plan.search.call(this, callback);
 };
 
 // Save a payment method
@@ -872,7 +922,7 @@ UserApp.User.PaymentMethod.save = function(arguments, callback){
 };
 
 UserApp.User.PaymentMethod.prototype.save = function(callback){
-	UserApp.Plan.save(callback);
+	UserApp.Plan.save.call(this, callback);
 };
 
 // Remove payment methods
@@ -882,14 +932,19 @@ UserApp.User.PaymentMethod.remove = function(arguments, callback){
 };
 
 UserApp.User.PaymentMethod.prototype.remove = function(callback){
-	UserApp.Plan.remove(callback);
+	UserApp.Plan.remove.call(this, callback);
 };
 
 // Export
 
-UserApp.Export = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.Export = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get payment methods
@@ -899,15 +954,20 @@ UserApp.Export.stream = function(arguments, callback){
 };
 
 UserApp.Export.prototype.stream = function(callback){
-	UserApp.Export.stream(callback);
+	UserApp.Export.stream.call(this, callback);
 };
 
 
 // OAuth
 
-UserApp.OAuth = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.OAuth = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Consume an oauth callback token
@@ -917,7 +977,7 @@ UserApp.OAuth.getAuthorizationUrl = function(arguments, callback){
 };
 
 UserApp.OAuth.prototype.getAuthorizationUrl = function(callback){
-	UserApp.OAuth.getAuthorizationUrl(callback);
+	UserApp.OAuth.getAuthorizationUrl.call(this, callback);
 };
 
 // Consume an oauth callback token
@@ -927,7 +987,7 @@ UserApp.OAuth.consume = function(arguments, callback){
 };
 
 UserApp.OAuth.prototype.consume = function(callback){
-	UserApp.OAuth.consume(callback);
+	UserApp.OAuth.consume.call(this, callback);
 };
 
 // Request an oauth resource
@@ -937,14 +997,19 @@ UserApp.OAuth.request = function(arguments, callback){
 };
 
 UserApp.OAuth.prototype.request = function(callback){
-	UserApp.OAuth.request(callback);
+	UserApp.OAuth.request.call(this, callback);
 };
 
 // OAuth Connection
 
-UserApp.OAuth.Connection = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.OAuth.Connection = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Find OAuth connections
@@ -954,7 +1019,7 @@ UserApp.OAuth.Connection.search = function(arguments, callback){
 };
 
 UserApp.OAuth.Connection.prototype.search = function(callback){
-	UserApp.OAuth.Connection.search(callback);
+	UserApp.OAuth.Connection.search.call(this, callback);
 };
 
 // Get OAuth connections
@@ -964,7 +1029,7 @@ UserApp.OAuth.Connection.get = function(arguments, callback){
 };
 
 UserApp.OAuth.Connection.prototype.get = function(callback){
-	UserApp.OAuth.Connection.get(callback);
+	UserApp.OAuth.Connection.get.call(this, callback);
 };
 
 // Remove OAuth connections
@@ -974,14 +1039,19 @@ UserApp.OAuth.Connection.remove = function(arguments, callback){
 };
 
 UserApp.OAuth.Connection.prototype.remove = function(callback){
-	UserApp.OAuth.Connection.remove(callback);
+	UserApp.OAuth.Connection.remove.call(this, callback);
 };
 
 // OAuth Provider
 
-UserApp.OAuth.Provider = function(appId, token){
-	this.appId = appId == undefined || appId == null ? UserApp.global.appId : appId;
-	this.token = token == undefined || token == null ? UserApp.global.token : token;
+UserApp.OAuth.Provider = function(options){
+	options = options || {};
+	if(options.appId){
+		this.appId = options.appId;
+	}
+	if(options.token){
+		this.token = options.token;
+	}
 };
 
 // Get
@@ -991,7 +1061,7 @@ UserApp.OAuth.Provider.get = function(arguments, callback){
 };
 
 UserApp.OAuth.Provider.prototype.get = function(callback){
-	UserApp.OAuth.Provider.get(callback);
+	UserApp.OAuth.Provider.get.call(this, callback);
 };
 
 // Search
@@ -1001,7 +1071,7 @@ UserApp.OAuth.Provider.search = function(arguments, callback){
 };
 
 UserApp.OAuth.Provider.prototype.search = function(callback){
-	UserApp.OAuth.Provider.search(callback);
+	UserApp.OAuth.Provider.search.call(this, callback);
 };
 
 // Save
@@ -1011,5 +1081,5 @@ UserApp.OAuth.Provider.save = function(arguments, callback){
 };
 
 UserApp.OAuth.Provider.prototype.save = function(callback){
-	UserApp.OAuth.Provider.save(callback);
+	UserApp.OAuth.Provider.save.call(this, callback);
 };
