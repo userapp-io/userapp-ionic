@@ -8,6 +8,8 @@
 angular.module('starter', ['ionic', 'UserApp', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform, user) {
+  // Initiate the user service with your UserApp App Id
+  // https://help.userapp.io/customer/portal/articles/1322336-how-do-i-find-my-app-id-
   user.init({ appId: 'YOUR-USERAPP-APP-ID' });
 
   $ionicPlatform.ready(function() {

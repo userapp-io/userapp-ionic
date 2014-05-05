@@ -78,4 +78,16 @@
 			}
 		}, true);
 	};
+
+	UserApp.tokenStorage = {
+		get: function() {
+			return window.localStorage.getItem('ua_session_token');
+		},
+		set: function(token) {
+			window.localStorage.setItem('ua_session_token', token);
+		},
+		remove: function() {
+			window.localStorage.removeItem('ua_session_token');
+		}
+	};
 })();
