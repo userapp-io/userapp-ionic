@@ -21,6 +21,12 @@ Open the file `www/js/app.js` and replace `YOUR-USERAPP-APP-ID` with your App Id
     $ ionic build android
     $ ionic emulate android
 
+## UserApp Dependencies
+
+* [UserApp JavaScript SDK](https://app.userapp.io/#/docs/libs/javascript/) - API wrapper library for the UserApp API
+* [UserApp AngularJS SDK](https://app.userapp.io/#/docs/libs/angularjs/) - Adds user authentication to an AngularJS app
+* [UserApp PhoneGap Library](https://app.userapp.io/#/docs/libs/phonegap/) - Extends the above SDKs with PhoneGap specific functionality
+
 ## Help
 
 Contact us via email at support@userapp.io or visit our [support center](https://help.userapp.io). You can also see the [UserApp documentation](https://app.userapp.io/#/docs/) for more information.
