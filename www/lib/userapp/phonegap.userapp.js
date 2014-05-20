@@ -90,4 +90,25 @@
 			window.localStorage.removeItem('ua_session_token');
 		}
 	};
+
+	UserApp.oauthHandler = function(url, callback) {
+		var ref = window.open(url, '_blank', 'location=yes');
+        ref.addEventListener('loadstart', function(event) {
+            var matches = null;
+            if (event && (matches = event.url.match(/ua\_token=([a-z0-9\-\_]+)$/i)) != null) {
+            	UserApp.setToken(matches[1]);
+            	UserApp.setupPersistentToken(function(error, token) {
+            		if (token) {
+                    	callback(token.value);
+                    } else {
+                    	callback(matches[1]);
+                    }
+                });
+                ref.close();
+            }
+        });
+        ref.addEventListener('exit', function() {
+        	callback(null);
+        });
+	};
 })();

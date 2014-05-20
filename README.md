@@ -15,9 +15,18 @@ Open the file `www/js/app.js` and replace `YOUR-USERAPP-APP-ID` with your App Id
 
 [How do I find my App Id?](https://help.userapp.io/customer/portal/articles/1322336-how-do-i-find-my-app-id-)
 
-**Run the app with Ionic**
+**Add your platforms**
 
     $ ionic platform add android
+
+**Add AppInBrowser plugin**
+
+Install the [InAppBrowser](http://docs.phonegap.com/en/3.0.0/cordova_inappbrowser_inappbrowser.md.html) plugin:
+
+    $ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+
+**Run the app with Ionic**
+
     $ ionic build android
     $ ionic emulate android
 
